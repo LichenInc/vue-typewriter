@@ -133,6 +133,8 @@ export default {
       }, this.interval)
     },
     canContinue () {
+      if (this.finishTyping) this.$emit('finished')
+
       if (this.isWaiting) return false
 
       if (this.isTyping && !this.finishTyping && this.hasStarted) {
@@ -148,8 +150,6 @@ export default {
         this.doFullErase()
         return false
       }
-
-      if (this.finishTyping) this.$emit('finished')
 
       return true
     },
