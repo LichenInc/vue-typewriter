@@ -149,6 +149,8 @@ export default {
         return false
       }
 
+      if (this.finishTyping) this.$emit('finished')
+
       return true
     },
     doFullErase () {

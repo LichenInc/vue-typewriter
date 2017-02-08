@@ -283,8 +283,8 @@
                     }, this.interval));
                 },
                 canContinue: function() {
-                    return !this.isWaiting && (!(this.isTyping && !this.finishTyping && this.hasStarted) && (!(this.isErasing && !this.isErased && this.hasStarted) && (!this.isTyping || !this.finishTyping || (this.isTyping = !this.isTyping, 
-                    this.doFullErase(), !1))));
+                    return !this.isWaiting && (!(this.isTyping && !this.finishTyping && this.hasStarted) && (!(this.isErasing && !this.isErased && this.hasStarted) && (this.isTyping && this.finishTyping ? (this.isTyping = !this.isTyping, 
+                    this.doFullErase(), !1) : (this.finishTyping && this.$emit("finished"), !0))));
                 },
                 doFullErase: function() {
                     var _this2 = this;
