@@ -44,6 +44,10 @@ export default {
     fullErase: {
       type: Boolean,
       default: false
+    },
+    eraseAfter: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -173,7 +177,7 @@ export default {
         if (this.hasStarted && !this.isWaiting) {
           if (this.isTyping) {
             this.typePos++
-          } else {
+          } else if (this.eraseAfter) {
             this.typePos--
           }
           this.typing = this.currentWord.substr(0, this.typePos)

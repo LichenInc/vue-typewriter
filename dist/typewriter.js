@@ -221,6 +221,10 @@
                 fullErase: {
                     type: Boolean,
                     default: !1
+                },
+                eraseAfter: {
+                    type: Boolean,
+                    default: !0
                 }
             },
             data: function() {
@@ -295,7 +299,7 @@
                 type: function() {
                     var _this3 = this;
                     this.destroyTypeInterval(), this.typeInterval = setInterval(function() {
-                        _this3.next(), _this3.hasStarted && !_this3.isWaiting && (_this3.isTyping ? _this3.typePos++ : _this3.typePos--, 
+                        _this3.next(), _this3.hasStarted && !_this3.isWaiting && (_this3.isTyping ? _this3.typePos++ : _this3.eraseAfter && _this3.typePos--, 
                         _this3.typing = _this3.currentWord.substr(0, _this3.typePos));
                     }, this.speed);
                 }
